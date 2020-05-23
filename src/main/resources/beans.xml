@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+    <bean id="a" class="A">
+        <property name="someProperty" value="somePropertyForA"/>
+    </bean>
+    <bean id="b" class="B">
+        <constructor-arg ref="a"/>
+    </bean>
+    <bean id="d" class="D_BeanWithPrototypeScope" scope="prototype">
+
+    </bean>
+    <bean id="c" class="C">
+        <lookup-method name="injectD_BeanWithPrototypeScope" bean="d"/>
+    </bean>
+
+    <bean id="printer" class="Printer"/>
+
+    <bean id="e" class="E">
+        <replaced-method name="printMessage" replacer="printer"/>
+    </bean>
+
+    <bean id="f" class="F" destroy-method="customDestroy" init-method="init"/>
+
+</beans>
