@@ -14,10 +14,13 @@
     <bean id="b" class="B">
         <constructor-arg ref="a"/>
     </bean>
-    <bean id="d" class="DBeanWithPrototypeScope" scope="prototype"/>
+
+    <bean id="dBeanWithPrototypeScope" class="DBeanWithPrototypeScope" scope="prototype"/>
+
     <bean id="beanPostProcessor" class="PostProcessor"/>
+
     <bean id="c" class="C">
-        <lookup-method name="injectD_BeanWithPrototypeScope" bean="d"/>
+        <lookup-method name="injectDBeanWithPrototypeScope" bean="dBeanWithPrototypeScope"/>
     </bean>
 
     <bean id="printer" class="Printer"/>

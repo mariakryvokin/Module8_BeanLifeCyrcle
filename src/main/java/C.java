@@ -1,7 +1,14 @@
 public class C {
     private DBeanWithPrototypeScope d;
 
-    public DBeanWithPrototypeScope injectD_BeanWithPrototypeScope() {
+    public DBeanWithPrototypeScope injectDBeanWithPrototypeScope() {
         return null;
     }
+
+    public DBeanWithPrototypeScope getDPrototype() {
+        this.d = injectDBeanWithPrototypeScope();
+        return d;
+    }
+
+
 }
