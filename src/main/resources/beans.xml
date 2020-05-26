@@ -14,9 +14,8 @@
     <bean id="b" class="B">
         <constructor-arg ref="a"/>
     </bean>
-    <bean id="d" class="D_BeanWithPrototypeScope" scope="prototype">
-
-    </bean>
+    <bean id="d" class="DBeanWithPrototypeScope" scope="prototype"/>
+    <bean id="beanPostProcessor" class="PostProcessor"/>
     <bean id="c" class="C">
         <lookup-method name="injectD_BeanWithPrototypeScope" bean="d"/>
     </bean>

@@ -6,14 +6,13 @@ import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
 
-public class F implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, BeanPostProcessor, InitializingBean,
+public class F implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean,
         DisposableBean {
 
     private Logger logger = LogManager.getLogger();
@@ -47,18 +46,6 @@ public class F implements BeanNameAware, BeanFactoryAware, ApplicationContextAwa
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         logger.info("setApplicationContext:: Bean Definition Names= " +
                 Arrays.toString(applicationContext.getBeanDefinitionNames()));
-    }
-
-    @Override
-    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        logger.info("Post Process Before Initialization method is called : Bean Name " + beanName);
-        return bean;
-    }
-
-    @Override
-    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        logger.info("Post Process After Initialization method is called : Bean Name " + beanName);
-        return bean;
     }
 
     @Override
