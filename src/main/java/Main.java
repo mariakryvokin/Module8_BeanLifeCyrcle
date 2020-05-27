@@ -6,9 +6,9 @@ public class Main {
             new ClassPathXmlApplicationContext("beans.xml");
 
     public static void main(String[] args) {
-        showBeanLifeCircle();
+        //showBeanLifeCircle();
         testInjectionPrototypeInSingleton();
-        testMethodReplacement();
+        ///testMethodReplacement();
         applicationContext.close();
     }
 
